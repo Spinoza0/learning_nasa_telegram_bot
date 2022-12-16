@@ -27,20 +27,13 @@ public class TelegramBot extends TelegramLongPollingBot {
             String command = update.getMessage().getText();
             if (command != null) {
                 switch (command.trim().toLowerCase()) {
-                    case "/help":
-                    case "help":
-                        sendMessage(
-                                chatId,
-                                "Hello, I'm a NASA bot, sending a link to a new image upon request /give. " +
-                                        "The link is updated once a day!"
-                        );
-                        break;
-                    case "/give":
-                        sendMessage(chatId, NasaApi.getPictureUrl());
-                        break;
-                    default:
-                        sendMessage(chatId, "Unknown command!");
-                        break;
+                    case "/help", "help" -> sendMessage(
+                            chatId,
+                            "Hello, I'm a NASA bot, sending a link to a new image upon request /give. " +
+                                    "The link is updated once a day!"
+                    );
+                    case "/give" -> sendMessage(chatId, NasaApi.getPictureUrl());
+                    default -> sendMessage(chatId, "Unknown command!");
                 }
             }
         }

@@ -29,33 +29,6 @@ public class NasaObject {
         this.url = url;
     }
 
-    public String getCopyright() {
-        return copyright;
-    }
-
-    public String getDate() {
-        return date;
-    }
-
-    public String getExplanation() {
-        return explanation;
-    }
-
-    public String getHdurl() {
-        return hdurl;
-    }
-
-    public String getMediaType() {
-        return mediaType;
-    }
-
-    public String getServiceVersion() {
-        return serviceVersion;
-    }
-
-    public String getTitle() {
-        return title;
-    }
 
     public String getUrl() {
         return url;

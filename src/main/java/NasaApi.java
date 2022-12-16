@@ -10,7 +10,7 @@ import java.io.IOException;
 public class NasaApi {
     // NASA_TOKEN - your own telegram token (see https://api.nasa.gov/)
     private static final String URI = "https://api.nasa.gov/planetary/apod?api_key=" + Token.NASA_TOKEN;
-    private static CloseableHttpClient httpClient = HttpClientBuilder
+    private static final CloseableHttpClient httpClient = HttpClientBuilder
             .create()
             .setDefaultRequestConfig(RequestConfig
                     .custom()
@@ -24,7 +24,7 @@ public class NasaApi {
 
     public static String getPictureUrl() {
         String result;
-        NasaObject nasaObject = null;
+        NasaObject nasaObject;
         try {
             CloseableHttpResponse response = httpClient.execute(new HttpGet(URI));
             nasaObject = mapper.readValue(response.getEntity().getContent(), NasaObject.class);
